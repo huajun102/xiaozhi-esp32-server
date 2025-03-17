@@ -6,12 +6,24 @@ WORKDIR /app
 COPY main/xiaozhi-server/requirements.txt .
 
 # 优化apt安装
+RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pip -U
 RUN pip install --no-cache-dir -r requirements.txt
 
 # 第三阶段：生产镜像
 FROM python:3.10-slim
 
 WORKDIR /opt/xiaozhi-esp32-server
+
+#更新apt源为清华源
+RUN echo "[Info] 正在备份默认apt源..."
+#RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak
+RUN echo "[Info] 正在替换apt源为清华apt源..."
+RUN echo deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware > /etc/apt/sources.list
+RUN echo deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware >> /etc/apt/sources.list
+RUN echo deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware >> /etc/apt/sources.list
+RUN echo deb https://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware >> /etc/apt/sources.list
+RUN echo "[Info] 正在更新源和软件..."
+RUN  apt update && apt upgrade -y
 
 # 优化apt安装
 RUN apt-get update && \
