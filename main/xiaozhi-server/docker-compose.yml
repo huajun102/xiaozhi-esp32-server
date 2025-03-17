@@ -6,7 +6,7 @@
 version: '3'
 services:
   xiaozhi-esp32-server:
-    image: ghcr.nju.edu.cn/xinnan-tech/xiaozhi-esp32-server:server_latest
+    image: xiaozhi-esp32-server:server_latest
     container_name: xiaozhi-esp32-server
     restart: always
     security_opt:
@@ -23,7 +23,7 @@ services:
       - ./models/SenseVoiceSmall/model.pt:/opt/xiaozhi-esp32-server/models/SenseVoiceSmall/model.pt
   #智控台还没开发好，还不能完全使用，会报很多错误，如果是非技术人员，请不要启用智控台服务
   xiaozhi-esp32-server-web:
-   image: ghcr.nju.edu.cn/xinnan-tech/xiaozhi-esp32-server:web_latest
+   image: xiaozhi-esp32-server:web_latest
    container_name: xiaozhi-esp32-server-web
    restart: always
    ports:
