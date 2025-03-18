@@ -31,8 +31,8 @@ services:
    environment:
      - TZ=Asia/Shanghai
      ##记得改mysql和redis IP 密码
-     - SPRING_DATASOURCE_DRUID_URL=jdbc:mysql://192.168.1.87:3306/xiaozhi_esp32_server?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+     - SPRING_DATASOURCE_DRUID_URL=jdbc:mysql://192.168.1.90:3306/xiaozhi_esp32_server?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
      - SPRING_DATASOURCE_DRUID_USERNAME=xiaozhi_esp32_server
      - SPRING_DATASOURCE_DRUID_PASSWORD=xiaozhi_esp32_server
-     - SPRING_DATA_REDIS_HOST=192.168.1.71
-     - SPRING_DATA_REDIS_PORT=6378
+     - SPRING_DATA_REDIS_HOST=192.168.1.90
+     - SPRING_DATA_REDIS_PORT=6379

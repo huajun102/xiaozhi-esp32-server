@@ -73,7 +73,7 @@ else
     #$DOWNLOAD_CMD "docker-compose.yml" "https://raw.githubusercontent.com/xinnan-tech/xiaozhi-esp32-server/main/main/xiaozhi-server/docker-compose.yml"
     #$DOWNLOAD_CMD "data/.config.yaml" "https://raw.githubusercontent.com/xinnan-tech/xiaozhi-esp32-server/main/main/xiaozhi-server/config.yaml"
     cp ../main/xiaozhi-server/docker-compose.yml docker-compose.yml
-    cp ../main/xiaozhi-server/config.yaml data/.config.yml
+    cp ../main/xiaozhi-server/config.yaml data/.config.yaml
 fi
 
 # 检查文件是否存在
